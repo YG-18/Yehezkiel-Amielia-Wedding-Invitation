@@ -144,7 +144,7 @@ h1, h2, h3, .display {
 }
 
 .eyebrow-details {
-  font-family: 'Runtime';
+  font-family: 'Jost';
   font-size: 0.85rem;
   letter-spacing: 0.42em;
   text-transform: uppercase;
@@ -334,6 +334,7 @@ section.page {
 }
 
 .cover-date {
+  font-family: 'Mending', cursive;
   margin-top: 16px;
   font-size: 0.9rem;
   letter-spacing: 0.35em;
@@ -776,7 +777,7 @@ rgba(220, 194, 176, 0.42) 100%
 .countdown-quote p {
   font-family: 'Mending', serif;
   font-style: italic;
-  font-size: clamp(1.45rem, 3vw, 1.3rem);
+  font-size: clamp(1.6rem, 3vw, 1.3rem);
   line-height: 1.75;
   color: var(--gold);
   text-shadow: 0 2px 14px rgba(43,23,16,0.6);
@@ -785,7 +786,7 @@ rgba(220, 194, 176, 0.42) 100%
 .countdown-quote .quote-ref {
   display: block;
   font-family: 'Cormorant Garamond', cursive;
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   color: var(--sterling-silver);
   text-shadow: 0 2px 10px rgba(43,23,16,0.6);
 }
@@ -1048,7 +1049,7 @@ rgba(51, 46, 40, 0.25) 100%
   inset: 0;
   background: linear-gradient(180deg, rgba(247,238,223,0.94) 0%, rgba(247,238,223,0.8) 14%, rgba(247,238,223,0.82) 86%, rgba(247,238,223,0.96) 100%);
 }
-#page4 .section-heading h2 { color: var(--crimson-deep); }
+#page4 .section-heading h2 {font-family: 'Baik', serif; font-size: clamp(1.5rem, 1.4vw, 1.02rem); color: var(--crimson-deep);}
 #page4 .section-heading,
 #page4 .gallery-static,
 #page4 .carousel-label,
@@ -1596,35 +1597,96 @@ rgba(51, 46, 40, 0.25) 100%
    Footer / closing
    ========================================================= */
 #closing {
-  /* background-color: var(--crimson-deep); */
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-image: url('../images/footer-bg.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: var(--beige);
   text-align: center;
-  padding: clamp(56px, 10vw, 90px) 24px clamp(40px, 7vw, 60px);
+  padding: clamp(56px, 10vw, 90px) 24px clamp(48px, 8vw, 72px);
+  overflow: hidden;
 }
+
+#closing .bg-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(43,23,16,0.55) 0%,
+    rgba(43,23,16,0.75) 60%,
+    rgba(43,23,16,0.85) 100%
+  );
+}
+
+#closing .closing-content {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+}
+
+/* small ornamental mark up top, echoing the section-heading flourish elsewhere on the page */
+#closing .flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+#closing .flourish .diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+
 #closing .script {
-  font-size: 2.4rem;
+  font-family: 'Mending', serif;
+  font-style: italic;
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
   color: var(--gold);
-  margin-bottom: 10px;
+  margin-bottom: 45px;
+  line-height: 1.2;
 }
-#closing p {
-  font-family: 'Jost', serif;
-  font-size: 1rem;
+
+#closing .closing-message {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(1.1rem, 1.6vw, 1.05rem);
   letter-spacing: 0.05em;
   max-width: 420px;
   margin: 0 auto;
-  line-height: 1.8;
+  line-height: 1.9;
   color: var(--gold-light);
 }
+
+#closing .footer-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 32px auto 26px;
+  opacity: 0.7;
+}
+
 #closing .footer-names {
-  margin-top: 26px;
-  font-family: 'Baik', serif;
+  font-family: 'Mending', serif;
   font-style: italic;
-  font-size: 1.3rem;
+  font-size: clamp(1.5rem, 2.4vw, 1.7rem);
   color: var(--gold);
+  letter-spacing: 0.03em;
+}
+
+#closing .footer-date {
+  display: block;
+  margin-top: 10px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  opacity: 0.75;
 }
 
 /* =========================================================
