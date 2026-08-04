@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yehezkiel & Amielia — The Wedding</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/decor-animate.css">
+</head>
+<body>
+
+<!-- progress rail -->
+<div id="progress-rail"><div class="bar" id="progressBar"></div></div>
+
+<!-- ================= COVER ================= -->
+<section id="cover">
+  <!--
+    Replace with your own portrait: put it at images/cover-bg.jpeg
+    Recommended: a vertical or wide shot of the two of you, at least 1600px wide.
+  -->
+  <img src="images/cover-bg.jpeg" alt="Yehezkiel and Amielia" class="cover-bg" style="--photo-focus: 50% 0%;"
+       onerror="this.style.background='linear-gradient(160deg,#6E1423,#2B1710)'; this.style.opacity=1; this.removeAttribute('src');">
+  <div class="cover-scrim"></div>
+
+  <!-- DECORATIVE ASSET EXAMPLE — flutter/shake
+       Drop a transparent PNG (bird, wayang figure, etc.) at
+       images/decor-bird.png and it will gently flutter in place.
+       Delete this block if you don't want it. -->
+  <!-- <img src="images/decor-bird.png" alt="" class="decor-asset"
+       data-animate="flutter" data-duration="2.4s"
+       style="position:absolute; top:9%; right:7%; width:64px; z-index:3;"
+       onerror="this.remove()"> -->
+
+  <div class="cover-frame">
+    <span class="cover-eyebrow">The Wedding Of</span>
+
+    <!-- LOGO PLACEHOLDER: drop your monogram at images/logo.png -->
+    <div class="logo-slot" id="logoSlot">
+      <img src="images/logo.png" alt="Monogram" id="logoImg"
+           onerror="document.getElementById('logoSlot').classList.add('empty'); this.remove();">
+      <!-- <span class="logo-placeholder-text" id="logoFallback">Y&nbsp;&amp;&nbsp;A<br>your monogram here</span> -->
+    </div>
+
+    <h1 class="cover-names">
+      <span class="name-line">Yehezkiel</span>
+      <span class="cover-amp">&amp;</span>
+      <span class="name-line">Amielia</span>
+    </h1>
+    <div class="cover-date">17 · July · 2027</div>
+
+    <button class="open-btn" id="openBtn" aria-label="Open the invitation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 21V6l8-3 8 3v15"/><path d="M9 21V13a3 3 0 0 1 6 0v8"/></svg>
+      Open Invitation
+    </button>
+
+    <div class="cover-invite-for">Kepada Bapak/Ibu/Saudara/i — you are warmly invited</div>
+  </div>
+</section>
+
+<!-- ================= VIDEO INTRO ================= -->
+<!-- Add your own clip at video/intro.mp4 (~10 seconds). It plays
+     full-screen right after "Open Invitation" is tapped, then fades
+     out to reveal the invitation once it finishes. -->
+<div id="video-overlay">
+  <video id="introVideo" src="video/intro.mp4" playsinline preload="auto"></video>
+  <!-- add muted above if you'd rather the clip play silently -->
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main id="mainContent" style="display:none;">
+
+  <!-- ============ PAGE 1 — OUR BEGINNING ============ -->
+  <section class="page" id="page1">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Long Before This Day</span>
+      <h2>Our Beginning</h2>
+      <div class="flourish"><span class="diamond"></span></div>
+    </div>
+
+    <img src="images/decor-children.png" alt="" class="decor-asset"
+        data-animate="flutter" data-duration="3.5s"
+        style="position:absolute; top:32%; right:30%; width:165px; z-index:3;"
+        onerror="this.remove()">
+      
+    <img src="images/decor-adult.png" alt="" class="decor-asset"
+        data-animate="flutter" data-duration="3.5s"
+        style="position:absolute; top:53%; right:27%; width:170px; z-index:3;"
+        onerror="this.remove()">
+
+    <div class="polaroid-row reveal-stagger">
+      <!-- Groom's childhood photos: images/childhood-groom-1.jpeg / childhood-groom-2.jpeg -->
+      <div class="polaroid-col">
+        <span class="polaroid-side-label">Yehezkiel</span>
+        <div class="polaroid-group">
+          <figure class="polaroid tilt-a">
+            <div class="frame">
+              <img src="images/childhood-groom-1.jpeg" alt="Yehezkiel as a child"
+                   onerror="this.parentElement.innerHTML='<div class=placeholder-fallback>groom, childhood<br>images/childhood-groom-1.jpeg</div>'">
+            </div>
+            <span class="grain-caption">little Yehezkiel</span>
+          </figure>
+          <figure class="polaroid tilt-b">
+            <div class="frame">
+              <img src="images/childhood-groom-2.jpeg" alt="Yehezkiel growing up"
+                   onerror="this.parentElement.innerHTML='<div class=placeholder-fallback>groom, childhood<br>images/childhood-groom-2.jpeg</div>'">
+            </div>
+            <span class="grain-caption">growing up</span>
+          </figure>
+        </div>
+      </div>
+
+      <!-- <div class="polaroid-divider">&amp;</div> -->
+
+      <!-- Bride's childhood photos: images/childhood-bride-1.jpeg / childhood-bride-2.jpeg -->
+      <div class="polaroid-col">
+        <span class="polaroid-side-label">Amielia</span>
+        <div class="polaroid-group">
+          <figure class="polaroid tilt-c">
+            <div class="frame">
+              <img src="images/childhood-bride-1.jpeg" alt="Amielia as a child"
+                   onerror="this.parentElement.innerHTML='<div class=placeholder-fallback>bride, childhood<br>images/childhood-bride-1.jpeg</div>'">
+            </div>
+            <span class="grain-caption">little Amielia</span>
+          </figure>
+          <figure class="polaroid tilt-d">
+            <div class="frame">
+              <img src="images/childhood-bride-2.jpeg" alt="Amielia growing up"
+                   onerror="this.parentElement.innerHTML='<div class=placeholder-fallback>bride, childhood<br>images/childhood-bride-2.jpeg</div>'">
+            </div>
+            <span class="grain-caption">growing up</span>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="verse-card reveal" style="position:relative;">
+
+      <span class="verse-mark">&#8220;</span>
+      <p class="verse-text">
+          Place me like a seal over your heart, like a seal on your arm. For love is as strong as death, its jealousy as enduring as the grave. 
+          It burns like blazing fire, like a mighty flame.
+      </p>
+      <span class="verse-ref">Song of Solomon 8:6-7</span>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 2A — GROOM ============ -->
+  <section class="page invite-page" id="page2-groom">
+    <video class="bg-video" autoplay muted loop playsinline poster="images/invite-bg-groom.png">
+      <source src="video/groom-bts.mp4" type="video/mp4">
+    </video>
+    <div class="bg-scrim"></div>
+
+    <div class="invite-content reveal">
+      <span class="invite-eyebrow-label">The Groom</span>
+      <h1 class="invite-single-name">Yehezkiel Putra Galang</h1>
+
+      <div class="invite-divider"></div>
+
+      <div class="invite-single-parents">
+        <span class="who">Son Of</span>
+        <span class="names">
+          Mr. Andi Kristianto & Mrs. Paula Romauli Tambunan
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 2B — BRIDE ============ -->
+  <section class="page invite-page" id="page2-bride">
+    <video class="bg-video" autoplay muted loop playsinline poster="images/invite-bg-bride.png">
+      <source src="video/bride-bts.mp4" type="video/mp4">
+    </video>
+    <div class="bg-scrim"></div>
+
+    <div class="invite-content reveal">
+      <span class="invite-eyebrow-label">The Bride</span>
+      <h1 class="invite-single-name">Amielia Eka Putri Galu Mabela</h1>
+
+      <div class="invite-divider"></div>
+
+      <div class="invite-single-parents">
+        <span class="who">Daughter Of</span>
+        <span class="names">
+          Mr. Samin & Ms. Al Mujiati
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 2C — COUNTDOWN ============ -->
+  <section class="page countdown-page" id="page2-countdown">
+    <video class="bg-video" autoplay muted loop playsinline poster="images/countdown-bg.png">
+      <source src="video/countdown-video.mp4" type="video/mp4">
+    </video>
+    <div class="bg-scrim"></div>
+
+    <div class="countdown-quote reveal">
+      <p>"Love is the only reality and it is not a mere sentiment. It is the ultimate truth that lies at the heart of creation"</p>
+      <span class="quote-ref">Rabindranath Tagore</span>
+    </div>
+
+    <div class="countdown-page-content reveal">
+      <span class="countdown-label">Save The Date</span>
+      <span class="countdown-divider" aria-hidden="true"></span>
+      <div class="countdown-date">Saturday · 17 July 2027</div>
+
+      <div class="countdown" id="countdown">
+        <div class="unit"><span class="num" id="cd-days">00</span><span class="lbl">Days</span></div>
+        <div class="unit"><span class="num" id="cd-hours">00</span><span class="lbl">Hours</span></div>
+        <div class="unit"><span class="num" id="cd-mins">00</span><span class="lbl">Minutes</span></div>
+        <div class="unit"><span class="num" id="cd-secs">00</span><span class="lbl">Seconds</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ PAGE 3 — CEREMONY DETAILS ============ -->
+  <section class="page" id="page3">
+    <!-- Replace with your own background: images/details-bg.jpeg -->
+    <img src="images/details-bg.png" alt="" class="bg-image"
+         onerror="this.style.background='linear-gradient(160deg,#6E1423,#2B1710)';this.removeAttribute('src');">
+    <div class="bg-scrim"></div>
+
+    <div class="section-heading reveal">
+      <span class="eyebrow">Save The Date</span>
+      <h2>Wedding Details</h2>
+      <div class="flourish"><span class="diamond"></span></div>
+    </div>
+
+    <div class="timeline reveal-stagger">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-item align-left">
+        <div class="timeline-card">
+          <span class="eyebrow">Ceremony</span>
+          <h3>Holy Matrimony</h3>
+          <span class="time">09:00 WIB</span>
+          <p class="venue-name">Gereja Bethany Batam Community</p>
+          <p class="venue-addr">Baloi Polisi, Sukajadi, Batam Kota, Kepulauan Riau</p>
+          <!-- Paste your Google Maps share link into href below -->
+          <a class="map-btn" href="#" target="_blank" rel="noopener" data-maps="ceremony">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+            View on Maps
+          </a>
+        </div>
+        <div class="timeline-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18"/>
+            <path d="M7 8.5h10"/>
+            <path d="M9.2 21c0-3.4 1.3-5.3 2.8-5.3s2.8 1.9 2.8 5.3"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="timeline-item align-right">
+        <div class="timeline-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 7.5 9h2.8L6 16h4.6L8 21h8l-2.6-5H18l-4.3-7h2.8L12 2Z"/>
+            <path d="M12 21v-3"/>
+          </svg>
+        </div>
+        <div class="timeline-card">
+          <span class="eyebrow">Reception</span>
+          <h3>Garden Reception</h3>
+          <span class="time">13:00 WIB</span>
+          <p class="venue-name">Kayu Merah Restaurant</p>
+          <p class="venue-addr">Jalan Kantong Semar II, Panbil, Kec. Batam Kota, Kota Batam, Kepulauan Riau</p>
+          <!-- Paste your Google Maps share link into href below -->
+          <a class="map-btn" href="#" target="_blank" rel="noopener" data-maps="reception">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+            View on Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 4 — OUR MOMENTS (gallery) ============ -->
+  <section class="page" id="page4">
+    <img src="images/moments-bg.jpeg" alt="" class="bg-image" onerror="this.remove();">
+    <!-- <div class="bg-scrim"></div> -->
+
+    <div class="section-heading reveal">
+      <span class="eyebrow">A Glimpse Of Us</span>
+      <h2>Our Moments</h2>
+      <div class="flourish"><span class="diamond"></span></div>
+    </div>
+
+    <!-- 5 static photos: images/moment-1.jpeg ... moment-5.jpeg -->
+    <div class="gallery-static reveal-stagger" id="galleryStatic"></div>
+
+    <div class="carousel-label reveal">
+      <span class="eyebrow-details">Scroll For More</span>
+    </div>
+    <div class="carousel-wrap reveal">
+      <button class="carousel-nav prev" id="carPrev" aria-label="Previous">&#8249;</button>
+      <div class="carousel" id="carousel"></div>
+      <button class="carousel-nav next" id="carNext" aria-label="Next">&#8250;</button>
+    </div>
+  </section>
+
+  <!-- Place this once, near the end of <body> — NOT nested inside #page4 -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+    <figure class="lightbox-figure">
+      <img id="lightboxImg" src="" alt="">
+    </figure>
+    <button class="lightbox-nav next" id="lightboxNext" aria-label="Next">&#8250;</button>
+  </div>
+  <p class="lightbox-caption" id="lightboxCaption"></p>
+
+  <!-- ============ PAGE 5 — WEDDING GIFT ============ -->
+  <section class="page" id="page5">
+    <img src="images/gifts-bg.png" alt="" class="bg-image"
+        onerror="this.remove();">
+    
+        <div class="section-heading reveal">
+      <span class="eyebrow">With Love & Gratitude</span>
+      <h2>Wedding Gift</h2>
+      <div class="flourish"><span class="diamond"></span></div>
+    </div>
+
+    <p class="gift-message reveal">
+      Your presence at our wedding already means the world to us — that alone
+      is the greatest gift we could ask for. But for those of you who wish to
+      send a token of your love and blessing from afar, we've gladly prepared
+      the details below.
+    </p>
+
+    <div class="gift-stack reveal-stagger">
+      <div class="gift-card">
+        <div class="gift-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 10 12 4l9 6"/><path d="M5 10v9"/><path d="M9 10v9"/><path d="M15 10v9"/><path d="M19 10v9"/><path d="M3 21h18"/>
+          </svg>
+        </div>
+        <div class="gift-info">
+          <!-- EDIT: replace the visible number below AND data-copy with your real account number -->
+          <span class="gift-bank">Bank Mandiri</span>
+          <span class="gift-number" data-copy="192xxxxxx">192xxxxxx</span>
+          <span class="gift-holder">a.n. Yehezkiel Putra Galang</span>
+        </div>
+        <button class="copy-btn" type="button" data-copy-target="1" aria-label="Copy account number">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="9" width="12" height="12" rx="1.5"/><path d="M5 15V4.5A1.5 1.5 0 0 1 6.5 3H16"/></svg>
+          <span class="copy-label">Copy</span>
+        </button>
+      </div>
+
+      <div class="gift-card">
+        <div class="gift-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 10 12 4l9 6"/><path d="M5 10v9"/><path d="M9 10v9"/><path d="M15 10v9"/><path d="M19 10v9"/><path d="M3 21h18"/>
+          </svg>
+        </div>
+        <div class="gift-info">
+          <!-- EDIT: replace the visible number below AND data-copy with your real account number -->
+          <span class="gift-bank">Bank OCBC</span>
+          <span class="gift-number" data-copy="271xxxxx">271xxxxx</span>
+          <span class="gift-holder">a.n. Amielia Eka Putri Galu Mabela</span>
+        </div>
+        <button class="copy-btn" type="button" data-copy-target="2" aria-label="Copy account number">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="9" width="12" height="12" rx="1.5"/><path d="M5 15V4.5A1.5 1.5 0 0 1 6.5 3H16"/></svg>
+          <span class="copy-label">Copy</span>
+        </button>
+      </div>
+
+      <div class="gift-card">
+        <div class="gift-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M16 12h.01"/><path d="M3 9h18"/>
+          </svg>
+        </div>
+        <div class="gift-info">
+          <!-- EDIT: replace the visible number below AND data-copy with your real GoPay number -->
+          <span class="gift-bank">E-Wallet — GoPay</span>
+          <span class="gift-number" data-copy="0812xxxxxx">0812xxxxxx</span>
+          <span class="gift-holder">a.n. Yehezkiel Putra Galang</span>
+        </div>
+        <button class="copy-btn" type="button" data-copy-target="3" aria-label="Copy number">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="9" width="12" height="12" rx="1.5"/><path d="M5 15V4.5A1.5 1.5 0 0 1 6.5 3H16"/></svg>
+          <span class="copy-label">Copy</span>
+        </button>
+      </div>
+    </div>
+    <p class="gift-thanks reveal">Thank you for your kindness and generosity 🤍</p>
+  </section>
+
+  <!-- ============ PAGE 6 — WISHES & RSVP ============ -->
+  <section class="page" id="page6">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Kindly Reply</span>
+      <h2>Wishes &amp; RSVP</h2>
+      <div class="flourish"><span class="diamond"></span></div>
+    </div>
+
+    <p class="rsvp-lead reveal">
+      Let us know if you'll be joining us, and feel free to leave a message —
+      it will mean so much to us and will appear right here for everyone to see.
+    </p>
+
+    <div class="rsvp-wrap reveal">
+      <form id="rsvpForm" class="rsvp-form">
+        <div class="field-row">
+          <label for="rsvpName">Your Name</label>
+          <input type="text" id="rsvpName" name="name" placeholder="e.g. Budi Santoso" required>
+        </div>
+
+        <div class="field-row">
+          <label for="rsvpAttendance">Will You Attend?</label>
+          <select id="rsvpAttendance" name="attendance" required>
+            <option value="" disabled selected>Please select…</option>
+            <option value="Attending">Yes, I will be there</option>
+            <option value="Not Attending">Sorry, I can't make it</option>
+          </select>
+        </div>
+
+        <div class="field-row" id="guestCountRow">
+          <label for="rsvpGuests">Number of Guests (including you)</label>
+          <select id="rsvpGuests" name="guests">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+
+        <div class="field-row">
+          <label for="rsvpMessage">Your Message / Wishes</label>
+          <textarea id="rsvpMessage" name="message" rows="3" placeholder="Write your wishes for the couple…" required></textarea>
+        </div>
+
+        <button type="submit" class="rsvp-submit" id="rsvpSubmit">
+          <span class="btn-text">Send</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></svg>
+        </button>
+
+        <p class="rsvp-status" id="rsvpStatus" aria-live="polite"></p>
+      </form>
+
+      <div class="wishes-wall">
+        <span class="wishes-title">Wishes From Our Loved Ones</span>
+        <div class="wishes-list" id="wishesList">
+          <p class="wishes-empty" id="wishesEmpty">Be the first to leave a wish for the couple 💌</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section id="closing">
+    <div class="reveal">
+      <p class="script">Thank You</p>
+      <p>Your presence at our wedding is the greatest gift of all. We can't wait
+        to celebrate this new chapter surrounded by the people we love.</p>
+      <p class="footer-names">Yehezkiel &amp; Amielia</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= MUSIC CONTROL ================= -->
+<!-- Put your song at song/song.wav -->
+<audio id="bgMusic" loop preload="none">
+  <source src="song/song.wav" type="audio/wav">
+</audio>
+<button id="music-toggle" aria-label="Toggle music">
+  <svg class="disc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.4" fill="currentColor"/></svg>
+</button>
+
+<script src="js/script.js"></script>
+<script src="js/decor-animate.js"></script>
+</body>
+</html>

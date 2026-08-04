@@ -1,0 +1,114 @@
+/* =========================================================
+   DECORATIVE ASSET ANIMATIONS
+   For small ornamental images — birds, wayang (shadow puppet)
+   figures, flowers, etc — that flutter/shake in place or drift
+   in a slow circle around a fixed point.
+
+   USAGE (see js/decor-animate.js — it reads these automatically):
+
+   Shake / flutter / float — just a plain <img>, no wrapper needed:
+     <img src="images/decor-bird.png" class="decor-asset"
+          data-animate="flutter" data-duration="1.6s">
+
+   Circling — also just a plain <img>; the script builds the
+   orbit wrapper around it automatically at page load:
+     <img src="images/decor-wayang.png" class="decor-asset"
+          data-animate="circle" data-radius="70" data-duration="14s">
+   ========================================================= */
+
+.decor-asset {
+  display: block;
+  pointer-events: none;   /* purely decorative, doesn't block clicks/scroll */
+  user-select: none;
+}
+
+/* ---------- Shake: quick nervous tremor (good for wayang figures) ---------- */
+@keyframes decorShake {
+  0%, 100% { transform: rotate(0deg); }
+  20%      { transform: rotate(-3deg); }
+  40%      { transform: rotate(2.5deg); }
+  60%      { transform: rotate(-2deg); }
+  80%      { transform: rotate(3deg); }
+}
+.decor-asset[data-animate="shake"] {
+  animation-name: decorShake;
+  animation-duration: var(--decor-duration, 1.8s);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 85%;  /* pivots near the base, like it's rooted/perched */
+}
+
+/* ---------- Flutter: softer wing-like flap, slight scale breathing ---------- */
+@keyframes decorFlutter {
+  0%, 100% { transform: rotate(0deg) scaleY(1); }
+  25%      { transform: rotate(-5deg) scaleY(0.97); }
+  50%      { transform: rotate(0deg) scaleY(1.02); }
+  75%      { transform: rotate(5deg) scaleY(0.97); }
+}
+.decor-asset[data-animate="flutter"] {
+  animation-name: decorFlutter;
+  animation-duration: var(--decor-duration, 2.4s);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+}
+
+/* ---------- Float: gentle vertical bob, good layered with shake/flutter ---------- */
+@keyframes decorFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.decor-asset[data-animate="float"] {
+  animation-name: decorFloat;
+  animation-duration: var(--decor-duration, 3.2s);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* ---------- Circle / orbit ----------
+   Built by js/decor-animate.js at runtime. The image gets wrapped as:
+     .decor-orbit-anchor > .decor-orbit-spin > img
+   .decor-orbit-anchor sits exactly where the <img> originally was.
+   .decor-orbit-spin rotates around that anchor point (radius = its width/height).
+   The <img> itself counter-rotates so it stays upright while it travels. */
+.decor-orbit-anchor {
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 0;
+}
+.decor-orbit-spin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--decor-radius, 60px);
+  height: var(--decor-radius, 60px);
+  transform-origin: 0 0;
+  animation: decorOrbitSpin var(--decor-duration, 12s) linear infinite;
+}
+.decor-orbit-spin img {
+  position: absolute;
+  top: calc(var(--decor-radius, 60px) * -1);
+  left: 0;
+  transform-origin: 50% 50%;
+  animation: decorOrbitCounter var(--decor-duration, 12s) linear infinite;
+}
+@keyframes decorOrbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes decorOrbitCounter {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+/* reverse direction option: <img ... data-direction="reverse"> */
+.decor-orbit-spin.reverse { animation-direction: reverse; }
+.decor-orbit-spin.reverse img { animation-direction: reverse; }
+
+@media (prefers-reduced-motion: reduce) {
+  .decor-asset[data-animate],
+  .decor-orbit-spin,
+  .decor-orbit-spin img {
+    animation: none !important;
+  }
+}
