@@ -74,6 +74,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Sevone';
+  src: url('../fonts/sevone.regular.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --crimson-deep: #6E1423;
   --crimson: #8F1D2C;
@@ -84,8 +92,11 @@
   --warm-milk: #dfcbad;
   --beige: #E9DAB9;
   --ink: #2B1710;
+  --charcoal: #2E2E2E;
   --strong-black: #000000;
   --sterling-silver: #F5F7F8;
+  --milky-way: #FFF9F0;
+  --venue-name: #F4D7A1;
   --shadow-soft: 0 20px 60px rgba(43, 23, 16, 0.35);
   --ease-silk: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -598,34 +609,151 @@ section.page {
 }
 
 /* =========================================================
-   2. PAGE 2 — THE INVITATION
+   Love Story page
    ========================================================= */
-/* #page2 {
+.love-story-page {
   min-height: 100vh;
   position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 90px 24px;
-  overflow: hidden;
 }
-#page2 .bg-image {
+
+.love-story-page .bg-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  filter: brightness(0.6) saturate(0.85);
 }
-#page2 .bg-scrim {
+
+/* Base scrim darkens the whole frame a touch, plus a stronger
+   left-side gradient so text sits on a reliably readable zone
+   regardless of what the video is doing there */
+.love-story-page .bg-scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-180deg,
-rgba(140, 80, 61, 0.75) 0%,
-rgba(178, 127, 108, 0.58) 48%,
-rgba(220, 194, 176, 0.42) 100%
-);
-} */
+  background:
+    linear-gradient(90deg,
+      rgba(43,23,16,0.82) 0%,
+      rgba(43,23,16,0.6) 32%,
+      rgba(43,23,16,0.25) 58%,
+      rgba(43,23,16,0.15) 100%
+    ),
+    linear-gradient(180deg,
+      rgba(43,23,16,0.25) 0%,
+      rgba(43,23,16,0.15) 40%,
+      rgba(43,23,16,0.4) 100%
+    );
+}
+
+.love-story-page .love-story-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 480px;
+  padding: 0 40px 0 clamp(24px, 6vw, 72px);
+  text-align: left;
+}
+
+.love-story-page .eyebrow {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  text-shadow: 0 2px 10px rgba(43,23,16,0.6);
+  margin-bottom: 10px;
+}
+
+.love-story-page .story-title {
+  font-family: 'GreatVibes', serif;
+  font-style: italic;
+  font-size: clamp(2.8rem, 5vw, 3.4rem);
+  color: var(--gold);
+  text-shadow: 0 2px 14px rgba(43,23,16,0.6);
+  margin: 0 0 16px;
+  line-height: 1.15;
+}
+
+.love-story-page .flourish {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 28px;
+}
+.love-story-page .flourish .diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+
+.love-story-page .story-text {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  color: var(--beige);
+  text-shadow: 0 2px 10px rgba(43,23,16,0.55);
+  margin: 0 0 22px;
+  max-width: 420px;
+}
+
+.love-story-page .story-closing {
+  font-style: italic;
+  color: var(--gold-light);
+  margin-bottom: 24px; /* was 0 — now needs space before the P.S. */
+}
+
+.love-story-page .story-ps {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+  color: var(--beige);
+  text-shadow: 0 2px 10px rgba(43,23,16,0.55);
+  max-width: 400px;
+  opacity: 0.85;
+  padding-top: 18px;
+  border-top: 1px solid rgba(201,161,92,0.3);
+  margin: 0;
+}
+
+.love-story-page .story-ps .ps-label {
+  font-family: 'GreatVibes', serif;
+  font-style: italic;
+  font-size: 1.15em;
+  color: var(--gold);
+  margin-right: 6px;
+}
+
+/* Mobile: text sits full-width, video still visible but scrim goes
+   near-full-strength since there's no "side" left to spare */
+@media (max-width: 640px) {
+  .love-story-page .bg-scrim {
+    background:
+      linear-gradient(180deg,
+        rgba(70, 41, 31, 0.55) 0%,
+        rgba(126, 96, 85, 0.7) 100%
+      );
+  }
+  .love-story-page .love-story-content {
+    max-width: 100%;
+    padding: 0 28px;
+    text-align: center;
+  }
+  .love-story-page .flourish {
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   2. PAGE 2 — THE INVITATION
+   ========================================================= */
 
 .invite-page {
   min-height: 100vh;
@@ -775,7 +903,7 @@ rgba(220, 194, 176, 0.42) 100%
   padding: 0 28px;
 }
 .countdown-quote p {
-  font-family: 'Mending', serif;
+  font-family: 'Sevone', serif;
   font-style: italic;
   font-size: clamp(1.6rem, 3vw, 1.3rem);
   line-height: 1.75;
@@ -889,17 +1017,30 @@ rgba(220, 194, 176, 0.42) 100%
 #page3 .bg-scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
+  background:
+linear-gradient(
 180deg,
-rgba(185, 116, 101, 0.62) 0%,
-rgba(207, 172, 156, 0.42) 50%,
-rgba(51, 46, 40, 0.25) 100%
-);
+rgba(28, 18, 13, 0.05) 0%,
+rgba(40, 25, 18, 0.20) 20%,
+rgba(56, 35, 25, 0.45) 55%,
+rgba(35, 22, 16, 0.75) 80%,
+rgba(20, 13, 10, 0.90) 100%
+);}
+
+#page3 .bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.4) saturate(0.90);
 }
+
 #page3 .section-heading,
 #page3 .timeline { position: relative; z-index: 2; }
-#page3 .section-heading .eyebrow { font-family: 'Jost', serif; font-size: clamp(1.1rem, 1.5vw, 1.75rem); color: var(--crimson); }
-#page3 .section-heading h2 { font-family: 'GreatVibes', serif; font-size: clamp(2.7rem, 1.5vw, 2rem); margin-bottom: 4px; color: var(--crimson-deep); }
+#page3 .section-heading .eyebrow { font-family: 'Jost', serif; font-size: clamp(0.95rem, 1.5vw, 1.75rem); color: var(--milky-way); }
+#page3 .section-heading h2 { font-family: 'Sevone', serif; font-size: clamp(2.1rem, 1.5vw, 2rem); margin-bottom: 4px; color: var(--gold-light); }
 
 .timeline {
   max-width: 940px;
@@ -927,43 +1068,32 @@ rgba(51, 46, 40, 0.25) 100%
 }
 .timeline-item:last-child { margin-bottom: 0; }
 
-.timeline-icon {
-  grid-column: 2;
-  width: 96px; height: 96px;
-  border-radius: 50%;
-  background: var(--crimson-deep);
-  border: 1.5px solid var(--gold);
-  box-shadow: 0 0 0 9px rgba(201,161,92,0.14), var(--shadow-soft);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--gold-light);
-  z-index: 2;
-}
-.timeline-icon svg { width: 38px; height: 38px; }
-
 .timeline-card {
-  background: rgba(247, 238, 223, 0.1);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(201,161,92,0.45);
-  padding: 42px 44px;
-  color: var(--crimson-deep);
-  max-width: 400px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 16px;     /* new */
+  box-shadow: 0 12px 40px rgba(0,0,0,.25);
+  padding: 32px 34px;
+  max-width: 340px;
   width: 100%;
+  margin: 0 auto;
 }
 .timeline-item.align-left .timeline-card { grid-column: 1; justify-self: end; text-align: right; }
 .timeline-item.align-right .timeline-card { grid-column: 3; justify-self: start; text-align: left; }
 
-.timeline-card .eyebrow { font-family: 'Jost', serif; font-size: 0.78rem; color: var(--strong-black); }
+.timeline-card .eyebrow { font-family: 'Ngetic', serif; font-size: 0.80rem; color: var(--milky-way); }
 .timeline-card h3 {
-  font-family: 'Gethuk Jawa', serif;
-  font-size: clamp(2.2rem, 2.8vw, 2.15rem);
-  color: var(--crimson-deep);
+  font-family: 'Mending', serif;
+  font-size: clamp(2.2rem, 2.5vw, 2.15rem);
+  color: var(--warm-milk);
   margin: 6px 0 2px;
 }
 .timeline-card .time {
   font-family: 'Runtime';
   font-size: clamp(1.8rem, 3.2vw, 2.5rem);
-  color: var(--crimson-deep);
+  color: var(--warm-milk);
   display: block;
   margin: 4px 0 12px;
 }
@@ -972,12 +1102,12 @@ rgba(51, 46, 40, 0.25) 100%
   font-weight: 500;
   font-size: clamp(1.15rem, 1.9vw, 1.32rem);
   margin-bottom: 4px;
-  color: var(--crimson-deep);
+  color: var(--venue-name);
 }
 .timeline-card .venue-addr {
-  font-family: 'Cormorant-Garamond', serif;
-  font-size: clamp(0.92rem, 1.4vw, 1.02rem);
-  color: var(--strong-black);
+  font-family: 'Jost', serif;
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  color: var(--milky-way);
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -988,8 +1118,8 @@ rgba(51, 46, 40, 0.25) 100%
   gap: 9px;
   padding: 13px 30px;
   background: transparent;
-  border: 1px solid var(--gold);
-  color: var(--strong-black);
+  border: 1px solid var(--warm-milk);
+  color: var(--gold);
   text-decoration: none;
   border-radius: 999px;
   font-size: 0.76rem;
