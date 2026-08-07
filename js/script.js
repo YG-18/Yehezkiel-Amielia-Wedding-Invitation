@@ -49,12 +49,19 @@ function injectMapsLinks() {
     if (CONFIG.mapsLinks[key]) a.href = CONFIG.mapsLinks[key];
   });
 }
-
 function setInviteeName() {
+  console.log("setInviteeName() CALLED");
+
   const params = new URLSearchParams(window.location.search);
-  const rawName = params.get('to'); // e.g. ?to=Budi%20Santoso
+  const rawName = params.get('to');
+
+  console.log("URL:", window.location.href);
+  console.log("rawName:", rawName);
 
   const nameEl = document.getElementById('inviteName');
+
+  console.log("nameEl:", nameEl);
+
   if (!nameEl) return;
 
   if (rawName && rawName.trim().length > 0) {
@@ -62,6 +69,7 @@ function setInviteeName() {
   }
 }
 
+document.addEventListener('DOMContentLoaded', setInviteeName);
 /* ---------- Lightbox controller ---------- */
 const lightbox = {
   list: [],
