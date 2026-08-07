@@ -21,26 +21,13 @@
   <img src="images/cover-bg.jpeg" alt="Yehezkiel and Amielia" class="cover-bg" style="--photo-focus: 50% 0%;"
        onerror="this.style.background='linear-gradient(160deg,#6E1423,#2B1710)'; this.style.opacity=1; this.removeAttribute('src');">
   <div class="cover-scrim"></div>
-
-  <!-- DECORATIVE ASSET EXAMPLE — flutter/shake
-       Drop a transparent PNG (bird, wayang figure, etc.) at
-       images/decor-bird.png and it will gently flutter in place.
-       Delete this block if you don't want it. -->
-  <!-- <img src="images/decor-bird.png" alt="" class="decor-asset"
-       data-animate="flutter" data-duration="2.4s"
-       style="position:absolute; top:9%; right:7%; width:64px; z-index:3;"
-       onerror="this.remove()"> -->
-
+  
   <div class="cover-frame">
     <span class="cover-eyebrow">The Wedding Of</span>
-
-    <!-- LOGO PLACEHOLDER: drop your monogram at images/logo.png -->
     <div class="logo-slot" id="logoSlot">
       <img src="images/logo.png" alt="Monogram" id="logoImg"
            onerror="document.getElementById('logoSlot').classList.add('empty'); this.remove();">
-      <!-- <span class="logo-placeholder-text" id="logoFallback">Y&nbsp;&amp;&nbsp;A<br>your monogram here</span> -->
     </div>
-
     <h1 class="cover-names">
       <span class="name-line">Yehezkiel</span>
       <span class="cover-amp">&amp;</span>
@@ -53,17 +40,15 @@
       Open Invitation
     </button>
 
-    <div class="cover-invite-for">Kepada Bapak/Ibu/Saudara/i — you are warmly invited</div>
+    <div class="cover-invite-for">
+      <span class="invite-label">Dear</span>
+      <span class="invite-name" id="inviteName">Our Beloved Guest</span>
+    </div>
   </div>
 </section>
 
-<!-- ================= VIDEO INTRO ================= -->
-<!-- Add your own clip at video/intro.mp4 (~10 seconds). It plays
-     full-screen right after "Open Invitation" is tapped, then fades
-     out to reveal the invitation once it finishes. -->
 <div id="video-overlay">
   <video id="introVideo" src="video/intro.mp4" playsinline preload="auto"></video>
-  <!-- add muted above if you'd rather the clip play silently -->
 </div>
 
 <!-- ================= MAIN CONTENT ================= -->
@@ -74,7 +59,6 @@
     <div class="section-heading reveal">
       <span class="eyebrow">Long Before This Day</span>
       <h2>Our Beginning</h2>
-      <!-- <div class="flourish"><span class="diamond"></span></div> -->
     </div>
 
     <img src="images/decor-children.png" alt="" class="decor-asset"
