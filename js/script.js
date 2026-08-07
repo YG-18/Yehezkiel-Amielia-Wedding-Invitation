@@ -50,6 +50,18 @@ function injectMapsLinks() {
   });
 }
 
+function setInviteeName() {
+  const params = new URLSearchParams(window.location.search);
+  const rawName = params.get('to'); // e.g. ?to=Budi%20Santoso
+
+  const nameEl = document.getElementById('inviteName');
+  if (!nameEl) return;
+
+  if (rawName && rawName.trim().length > 0) {
+    nameEl.textContent = rawName.trim();
+  }
+}
+
 /* ---------- Lightbox controller ---------- */
 const lightbox = {
   list: [],
