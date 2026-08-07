@@ -264,15 +264,15 @@ section.page {
   background:
     radial-gradient(
         ellipse at center,
-        rgba(255, 246, 239, 0.28) 0%,
-        rgba(236, 192, 171, 0.38) 80%
+        rgba(250, 237, 227, 0.28) 0%,
+        rgba(249, 188, 162, 0.38) 80%
     ),
     linear-gradient(
         180deg,
-        rgba(214, 136, 115, 0.48) 0%,
-        rgba(247, 213, 196, 0.22) 35%,
-        rgba(252, 231, 221, 0.22) 70%,
-        rgba(196, 121, 103, 0.48) 100%
+        rgba(240, 164, 142, 0.48) 0%,
+        rgba(236, 212, 201, 0.22) 35%,
+        rgba(233, 204, 190, 0.22) 70%,
+        rgba(253, 226, 221, 0.48) 100%
     );
 }
 
@@ -317,9 +317,9 @@ section.page {
 }
 
 .cover-eyebrow {
-  font-family: 'GreatVibes', serif;
+  font-family: 'Baik', serif;
   letter-spacing: 0.3em;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   color: var(--crimson-deep);
   margin-bottom: 14px;
 }
@@ -333,7 +333,7 @@ section.page {
   color: var(--crimson-deep);
 }
 .cover-names .name-line {
-  font-size: clamp(2.3rem, 8.5vw, 4rem);
+  font-size: clamp(3rem, 8.5vw, 4rem);
   text-shadow: 0 6px 30px rgba(0,0,0,0.4);
 }
 
@@ -347,7 +347,7 @@ section.page {
 .cover-date {
   font-family: 'Mending', cursive;
   margin-top: 16px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   letter-spacing: 0.35em;
   color: var(--crimson-deep);
   text-transform: uppercase;
@@ -383,8 +383,8 @@ section.page {
 
 .cover-invite-for {
   margin-top: 30px;
-  font-size: 0.78rem;
-  color: rgba(247,238,223,0.65);
+  font-size: 1rem;
+  color: var(--crimson-deep);
   letter-spacing: 0.08em;
 }
 
