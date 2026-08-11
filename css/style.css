@@ -51,6 +51,14 @@
 }
 
 @font-face {
+  font-family: 'Moglande';
+  src: url('../fonts/moglandemo.regular.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Baik';
   src: url('../fonts/baik-personal-use-only.regular.otf') format('opentype');
   font-weight: 700;
@@ -97,6 +105,7 @@
   --sterling-silver: #F5F7F8;
   --milky-way: #FFF9F0;
   --venue-name: #F4D7A1;
+  --purple: #AA98A9;
   --shadow-soft: 0 20px 60px rgba(43, 23, 16, 0.35);
   --ease-silk: cubic-bezier(0.22, 1, 0.36, 1);
 }
