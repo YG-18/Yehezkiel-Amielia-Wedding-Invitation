@@ -9,14 +9,14 @@
 </head>
 <body>
 
-<!-- progress rail -->
 <div id="progress-rail"><div class="bar" id="progressBar"></div></div>
 
 <!-- ================= COVER ================= -->
 <section id="cover">
   <img src="images/cover-bg.png" alt="Yehezkiel and Amielia" class="cover-bg" style="--photo-focus: 50% 0%;"
        onerror="this.style.background='linear-gradient(160deg,#6E1423,#2B1710)'; this.style.opacity=1; this.removeAttribute('src');">
-  
+  <!-- <div class="cover-scrim"></div> -->
+
   <div class="cover-frame">
     <button class="open-btn" id="openBtn" aria-label="Open the invitation">
       Open Invitation
@@ -29,8 +29,10 @@
   </div>
 </section>
 
+<!-- ================= VIDEO INTRO ================= -->
 <div id="video-overlay">
   <video id="introVideo" src="video/intro.mp4" playsinline preload="auto"></video>
+  <!-- add muted above if you'd rather the clip play silently -->
 </div>
 
 <!-- ================= MAIN CONTENT ================= -->
@@ -41,6 +43,7 @@
     <div class="section-heading reveal">
       <span class="eyebrow">Long Before This Day</span>
       <h2>Our Beginning</h2>
+      <!-- <div class="flourish"><span class="diamond"></span></div> -->
     </div>
 
     <img src="images/decor-children.png" alt="" class="decor-asset"
@@ -54,7 +57,6 @@
         onerror="this.remove()">
 
     <div class="polaroid-row reveal-stagger">
-      <!-- Groom's childhood photos: images/childhood-groom-1.jpeg / childhood-groom-2.jpeg -->
       <div class="polaroid-col">
         <span class="polaroid-side-label">Yehezkiel</span>
         <div class="polaroid-group">
@@ -74,10 +76,7 @@
           </figure>
         </div>
       </div>
-
-      <!-- <div class="polaroid-divider">&amp;</div> -->
-
-      <!-- Bride's childhood photos: images/childhood-bride-1.jpeg / childhood-bride-2.jpeg -->
+      
       <div class="polaroid-col">
         <span class="polaroid-side-label">Amielia</span>
         <div class="polaroid-group">
@@ -161,7 +160,7 @@
       <div class="invite-single-parents">
         <span class="who">Putra Dari</span>
         <span class="names">
-          Bapak Andi Kristianto & Ibu Paula Romauli Tambunan
+          Bpk. Andi Kristianto & Ibu Paula Romauli Tambunan
         </span>
       </div>
     </div>
@@ -183,7 +182,7 @@
       <div class="invite-single-parents">
         <span class="who">Putri Dari</span>
         <span class="names">
-          Bapak Samin & Ibu Al Mujiati
+          Bpk. Samin & Ibu Al Mujiati
         </span>
       </div>
     </div>
