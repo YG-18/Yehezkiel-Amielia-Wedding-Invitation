@@ -255,7 +255,7 @@ section.page {
   height: 100%;
   object-fit: cover;
   object-position: var(--photo-focus, 50% 8%);
-  filter: saturate(0.9) brightness(0.62);
+  filter: saturate(0.9) brightness(0.90);
 }
 
 #cover .cover-scrim {
@@ -317,11 +317,11 @@ section.page {
 }
 
 .cover-eyebrow {
-  font-family: 'Baik', serif;
+  font-family: 'Moglande', serif;
   letter-spacing: 0.3em;
-  font-size: 1.7rem;
-  color: var(--crimson-deep);
-  margin-bottom: 14px;
+  font-size: 1rem;
+  color: var(--strong-black);
+  margin-bottom: 15px;
 }
 
 .cover-names {
@@ -354,37 +354,39 @@ section.page {
 }
 
 .open-btn {
-  margin-top: 40px;
+  margin-top: 600px;
   padding: 15px 40px;
   background: transparent;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--milky-way);
   color: var(--crimson-deep);
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.80rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   display: flex;
   align-items: center;
   gap: 12px;
   transition: background 0.4s var(--ease-silk), color 0.4s var(--ease-silk), letter-spacing 0.4s var(--ease-silk);
-  animation: pulseGlow 2.6s ease-in-out infinite;
+  animation: pulseGlow 3s ease-in-out infinite;
 }
 .open-btn:hover {
-  background: var(--gold);
+  background: var(--purple);
   color: var(--ink);
   letter-spacing: 0.4em;
 }
 .open-btn svg { width: 16px; height: 16px; }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(108, 18, 17, 0.35); }
-  50% { box-shadow: 0 0 0 10px rgba(201,161,92,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(241, 132, 238, 0.35); }
+  50% { box-shadow: 0 0 0 10px rgba(74, 71, 66, 0); }
 }
 
 .cover-invite-for {
-  margin-top: 30px;
-  font-size: 1rem;
-  color: var(--crimson-deep);
+  font-family: 'Moglande', cursive;
+  font-size: clamp(4.5rem, 5vw, 2.8rem);
+  margin-top: 20px;
+  font-size: 1.3rem;
+  color: var(--strong-black);
   letter-spacing: 0.08em;
 }
 
