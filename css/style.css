@@ -2,14 +2,14 @@
    YEHEZKIEL & AMIELIA — DIGITAL WEDDING INVITATION
    ---------------------------------------------------------
    Color:
-     --crimson-deep   #6E1423   primary ground, doors closed
-     --crimson        #8F1D2C   headings, accents
-     --crimson-bright #B9384A   hover / active accents
-     --gold           #C9A15C   carved-wood gold, dividers
-     --gold-light     #E7CE97   highlights on gold
-     --cream          #F7EEDF   base light background
-     --beige          #E9DAB9   secondary panels
-     --ink            #2B1710   near-black warm text
+     --maroon-deep    #6E1423   deepest maroon, cover ground / dark surfaces
+     --maroon         #8F1D2C   rich maroon-red, headings & accents
+     --maroon-bright  #B9384A   warm brick-red, hover / active accents
+     --gold-deep      #C9A15C   antique batik gold, dividers & primary accent
+     --gold-pale      #E7CE97   pale gold highlights
+     --ivory          #F7EEDF   base warm ivory background
+     --sand           #E9DAB9   secondary sand-toned panels
+     --brown-deep     #2B1710   deep espresso-brown, body text
    Type:
      Display : 'Cormorant Garamond' (headings, numerals)
      Names  : 'Gethuk Jawa' (names, verse attribution — used sparingly)
@@ -91,21 +91,26 @@
 }
 
 :root {
-  --crimson-deep: #6E1423;
-  --crimson: #8F1D2C;
-  --crimson-bright: #B9384A;
-  --gold: #E8D8A8;
-  --gold-light: #E7CE97;
-  --cream: #F7EEDF;
-  --warm-milk: #dfcbad;
-  --beige: #E9DAB9;
-  --ink: #2B1710;
-  --charcoal: #2E2E2E;
-  --strong-black: #000000;
-  --sterling-silver: #F5F7F8;
-  --milky-way: #FFF9F0;
-  --venue-name: #F4D7A1;
-  --purple: #AA98A9;
+  --maroon-deep: #6E1423;   /* deepest maroon — cover ground, dark surfaces */
+  --maroon: #8F1D2C;        /* rich maroon-red — headings, borders, accents */
+  --maroon-bright: #B9384A; /* warm brick-red — hover / active accents */
+  --gold-deep: #C9A15C;     /* antique batik gold — dividers, primary gold accent */
+  --gold-pale: #E7CE97;     /* pale gold — highlights, secondary accents */
+  --ivory: #F7EEDF;         /* warm ivory — base light background */
+  --tan: #dfcbad;           /* warm tan — light text on dark surfaces */
+  --sand: #E9DAB9;          /* soft sand — secondary panels, muted text */
+  --brown-deep: #2B1710;    /* deep espresso-brown — main ink / body text */
+  --charcoal: #2E2E2E;      /* near-black neutral */
+  --black: #000000;         /* true black */
+  --parchment: #F2ECDD;     /* warm parchment — pale text on dark backgrounds */
+  --ivory-bright: #FFF9F0;  /* brightest ivory — buttons, borders */
+  --venue-gold: #F4D7A1;    /* warm gold — venue name emphasis */
+  --bronze: #8C6239;        /* aged bronze — hover accent */
+  --bone-white: #F7F4EF;
+  --warm-espresso: #2B1E1A;
+  --soga-terracotta: #914234;
+  --deep-sage: #4D5844;
+  --sand-gold: #D1BA9C;
   --shadow-soft: 0 20px 60px rgba(43, 23, 16, 0.35);
   --ease-silk: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -122,8 +127,8 @@ html {
 body {
   margin: 0;
   font-family: 'Jost', sans-serif;
-  color: var(--ink);
-  background: var(--cream);
+  color: var(--brown-deep);
+  background: var(--ivory);
   width: 100%;
   position: relative;
   overflow-x: hidden;
@@ -152,7 +157,7 @@ h1, h2, h3, .display {
   font-size: 0.85rem;
   letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: var(--crimson-deep);
+  color: var(--maroon-deep);
 }
 
 .eyebrow-invite {
@@ -160,7 +165,7 @@ h1, h2, h3, .display {
   font-size: 0.8rem;
   letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: var(--gold-pale);
 }
 
 .eyebrow-details {
@@ -168,7 +173,7 @@ h1, h2, h3, .display {
   font-size: 0.85rem;
   letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: var(--crimson-deep);
+  color: var(--maroon-deep);
 }
 
 img { max-width: 100%; display: block; }
@@ -188,7 +193,7 @@ button { font-family: inherit; cursor: pointer; }
   top: 50%;
   width: 40%;
   height: 1px;
-  background: var(--crimson-deep);
+  background: var(--maroon-deep);
 }
 .flourish::before { left: 0; }
 .flourish::after { right: 0; }
@@ -199,7 +204,7 @@ button { font-family: inherit; cursor: pointer; }
   width: 9px;
   height: 9px;
   transform: translate(-50%, -50%) rotate(45deg);
-  border: 1px solid var(--crimson);
+  border: 1px solid var(--maroon);
 }
 
 /* ---------- Reveal-on-scroll ---------- */
@@ -254,7 +259,7 @@ section.page {
   justify-content: center;
   position: relative;
   overflow: clip;
-  background: var(--crimson-deep);
+  background: var(--maroon-deep);
 }
 
 #cover .cover-bg {
@@ -263,8 +268,6 @@ section.page {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: var(--photo-focus, 50% 8%);
-  filter: saturate(0.9) brightness(0.90);
 }
 
 #cover .cover-scrim {
@@ -274,7 +277,7 @@ section.page {
     radial-gradient(
         ellipse at center,
         rgba(250, 237, 227, 0.28) 0%,
-        rgba(249, 188, 162, 0.38) 80%
+        rgba(201, 161, 92, 0.38) 80%
     ),
     linear-gradient(
         180deg,
@@ -292,7 +295,7 @@ section.page {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: var(--cream);
+  color: var(--ivory);
   padding: 32px;
 }
 
@@ -319,7 +322,7 @@ section.page {
   font-style: italic;
   font-size: 0.78rem;
   letter-spacing: 0.08em;
-  color: var(--gold-light);
+  color: var(--gold-pale);
   opacity: 0.85;
   line-height: 1.4;
   padding: 0 14px;
@@ -329,7 +332,7 @@ section.page {
   font-family: 'Moglande', serif;
   letter-spacing: 0.3em;
   font-size: 1rem;
-  color: var(--strong-black);
+  color: var(--black);
   margin-bottom: 15px;
 }
 
@@ -339,7 +342,7 @@ section.page {
   flex-direction: column;
   align-items: center;
   line-height: 1.5;
-  color: var(--crimson-deep);
+  color: var(--maroon-deep);
 }
 .cover-names .name-line {
   font-size: clamp(3rem, 8.5vw, 4rem);
@@ -348,7 +351,7 @@ section.page {
 
 .cover-amp {
   font-family: 'GreatVibes', cursive;
-  color: var(--crimson);
+  color: var(--maroon);
   font-size: clamp(1.5rem, 4.5vw, 2.1rem);
   margin: 2px 0;
 }
@@ -358,18 +361,19 @@ section.page {
   margin-top: 16px;
   font-size: 1.2rem;
   letter-spacing: 0.35em;
-  color: var(--crimson-deep);
+  color: var(--maroon-deep);
   text-transform: uppercase;
 }
 
 .open-btn {
-  margin-top: 600px;
+  margin-top: 580px;
   padding: 15px 40px;
   background: transparent;
-  border: 1px solid var(--milky-way);
-  color: var(--crimson-deep);
+  border: 0px solid var(--soga-terracotta);
+  /* color: var(--maroon-deep); */
   border-radius: 999px;
-  font-size: 0.80rem;
+  font-family: 'Jost', serif;
+  font-size: 0.85rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   display: flex;
@@ -379,23 +383,23 @@ section.page {
   animation: pulseGlow 3s ease-in-out infinite;
 }
 .open-btn:hover {
-  background: var(--purple);
-  color: var(--ink);
+  background: var(--bronze);
+  color: var(--brown-deep);
   letter-spacing: 0.4em;
 }
 .open-btn svg { width: 16px; height: 16px; }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(241, 132, 238, 0.35); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(75, 18, 18, 0.35); }
   50% { box-shadow: 0 0 0 10px rgba(74, 71, 66, 0); }
 }
 
 .cover-invite-for {
-  font-family: 'Moglande', cursive;
+  font-family: 'Runtime', cursive;
   font-size: clamp(4.5rem, 5vw, 2.8rem);
-  margin-top: 20px;
-  font-size: 1.3rem;
-  color: var(--strong-black);
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: var(--black);
   letter-spacing: 0.08em;
 }
 
@@ -465,7 +469,7 @@ section.page {
 .section-heading h2 {
   font-family: 'GreatVibes', cursive;
   font-size: clamp(1.9rem, 5vw, 2.8rem);
-  color: var(--crimson);
+  color: var(--maroon);
   font-style: italic;
   margin-top: 20px;
 }
@@ -501,7 +505,7 @@ section.page {
 .polaroid-divider {
   font-family: 'Aladin', cursive;
   font-size: 2.6rem;
-  color: var(--crimson);
+  color: var(--maroon);
   padding: 0 6px;
   align-self: center;
 }
@@ -520,7 +524,7 @@ section.page {
   font-size: 1.2rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--crimson-deep);
+  color: var(--maroon-deep);
 }
 
 @media (max-width: 640px) {
@@ -564,7 +568,7 @@ section.page {
   margin-top: 14px;
   font-family: 'Aladin', cursive;
   font-size: 1.2rem;
-  color: var(--crimson-deep);
+  color: var(--maroon-deep);
 }
 .polaroid .placeholder-fallback {
   width: 100%; height: 100%;
@@ -581,7 +585,7 @@ section.page {
   text-align: center;
   padding: clamp(32px, 7vw, 56px) clamp(20px, 5vw, 38px);
   position: relative;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--gold-deep);
   background: rgba(255, 251, 242, 0.55);
 }
 .verse-card::before, .verse-card::after {
@@ -589,7 +593,7 @@ section.page {
   position: absolute;
   width: 26px;
   height: 26px;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--gold-deep);
 }
 .verse-card::before { top: -10px; left: -10px; border-right: none; border-bottom: none; }
 .verse-card::after { bottom: -10px; right: -10px; border-left: none; border-top: none; }
@@ -597,7 +601,7 @@ section.page {
 .verse-mark {
   font-family: 'Cormorant Garamond', serif;
   font-size: 3.4rem;
-  color: var(--gold);
+  color: var(--gold-deep);
   line-height: 0.4;
   display: block;
   margin-bottom: 18px;
@@ -608,7 +612,7 @@ section.page {
   font-style: italic;
   font-size: clamp(1.05rem, 2.4vw, 1.32rem);
   line-height: 1.85;
-  color: var(--ink);
+  color: var(--brown-deep);
 }
 
 .verse-ref {
@@ -616,7 +620,7 @@ section.page {
   margin-top: 24px;
   font-family: 'Aladin', cursive;
   font-size: 1.5rem;
-  color: var(--crimson);
+  color: var(--maroon);
 }
 
 /* =========================================================
@@ -675,7 +679,7 @@ section.page {
   font-size: 0.85rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: var(--gold-pale);
   text-shadow: 0 2px 10px rgba(43,23,16,0.6);
   margin-bottom: 10px;
 }
@@ -684,7 +688,7 @@ section.page {
   font-family: 'GreatVibes', serif;
   font-style: italic;
   font-size: clamp(2.8rem, 5vw, 3.4rem);
-  color: var(--gold);
+  color: var(--gold-deep);
   text-shadow: 0 2px 14px rgba(43,23,16,0.6);
   margin: 0 0 16px;
   line-height: 1.15;
@@ -699,7 +703,7 @@ section.page {
 .love-story-page .flourish .diamond {
   width: 8px;
   height: 8px;
-  background: var(--gold);
+  background: var(--gold-deep);
   transform: rotate(45deg);
 }
 
@@ -708,7 +712,7 @@ section.page {
   font-size: clamp(0.95rem, 1.6vw, 1.05rem);
   line-height: 1.9;
   letter-spacing: 0.02em;
-  color: var(--beige);
+  color: var(--sand);
   text-shadow: 0 2px 10px rgba(43,23,16,0.55);
   margin: 0 0 22px;
   max-width: 420px;
@@ -716,7 +720,7 @@ section.page {
 
 .love-story-page .story-closing {
   font-style: italic;
-  color: var(--gold-light);
+  color: var(--gold-pale);
   margin-bottom: 24px; /* was 0 — now needs space before the P.S. */
 }
 
@@ -725,7 +729,7 @@ section.page {
   font-size: clamp(0.85rem, 1.4vw, 0.95rem);
   line-height: 1.75;
   letter-spacing: 0.02em;
-  color: var(--beige);
+  color: var(--sand);
   text-shadow: 0 2px 10px rgba(43,23,16,0.55);
   max-width: 400px;
   opacity: 0.85;
@@ -738,7 +742,7 @@ section.page {
   font-family: 'GreatVibes', serif;
   font-style: italic;
   font-size: 1.15em;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-right: 6px;
 }
 
@@ -821,7 +825,7 @@ section.page {
   font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: var(--gold-pale);
   margin-bottom: 10px;
 }
 
@@ -830,7 +834,7 @@ section.page {
   font-weight: 500;
   font-style: italic;
   font-size: clamp(2.1rem, 8vw, 3rem);
-  color: var(--warm-milk);
+  color: var(--tan);
   text-align: left;
   line-height: 1.15;
   margin: 0 0 20px;
@@ -840,7 +844,7 @@ section.page {
 .invite-divider {
   width: 56px;
   height: 1px;
-  background: var(--gold);
+  background: var(--gold-deep);
   margin-bottom: 18px;
 }
 
@@ -853,7 +857,7 @@ section.page {
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.22em;
-  color: var(--gold-light);
+  color: var(--gold-pale);
   margin-bottom: 10px;
 }
 .invite-single-parents .names {
@@ -861,7 +865,7 @@ section.page {
   font-style: normal;
   font-weight: 400;
   font-size: clamp(0.88rem, 2.2vw, 0.98rem);
-  color: var(--warm-milk);
+  color: var(--tan);
   line-height: 1.7;
 }
 .invite-single-parents .names .amp {
@@ -918,7 +922,7 @@ section.page {
   font-style: italic;
   font-size: clamp(1.6rem, 3vw, 1.3rem);
   line-height: 1.75;
-  color: var(--gold);
+  color: var(--gold-deep);
   text-shadow: 0 2px 14px rgba(43,23,16,0.6);
   margin: 0 0 12px;
 }
@@ -926,7 +930,7 @@ section.page {
   display: block;
   font-family: 'Cormorant Garamond', cursive;
   font-size: 1.4rem;
-  color: var(--sterling-silver);
+  color: var(--parchment);
   text-shadow: 0 2px 10px rgba(43,23,16,0.6);
 }
 
@@ -951,7 +955,7 @@ section.page {
   font-weight: 500;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--sterling-silver);
+  color: var(--parchment);
   text-shadow: 0 2px 10px rgba(43,23,16,0.6);
 }
 
@@ -961,7 +965,7 @@ section.page {
   width: 1px;
   height: 26px;
   margin: 14px 0;
-  background: linear-gradient(180deg, transparent, var(--gold) 50%, transparent);
+  background: linear-gradient(180deg, transparent, var(--gold-deep) 50%, transparent);
   opacity: 0.7;
 }
 
@@ -970,7 +974,7 @@ section.page {
   font-style: italic;
   font-size: clamp(1.9rem, 4vw, 2.4rem);
   letter-spacing: 0.04em;
-  color: var(--gold);
+  color: var(--gold-deep);
   text-shadow: 0 2px 14px rgba(43,23,16,0.6);
   margin-bottom: 26px;
 }
@@ -995,7 +999,7 @@ section.page {
 .countdown-page-content .countdown .num {
   font-family: 'Runtime', serif;
   font-size: 1.8rem;
-  color: var(--sterling-silver);
+  color: var(--parchment);
   display: block;
 }
 
@@ -1003,7 +1007,7 @@ section.page {
   font-size: 0.6rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--beige);
+  color: var(--sand);
   opacity: 0.85;
 }
 
@@ -1050,8 +1054,8 @@ rgba(20, 13, 10, 0.90) 100%
 
 #page3 .section-heading,
 #page3 .timeline { position: relative; z-index: 2; }
-#page3 .section-heading .eyebrow { font-family: 'Jost', serif; font-size: clamp(0.95rem, 1.5vw, 1.75rem); color: var(--milky-way); }
-#page3 .section-heading h2 { font-family: 'Sevone', serif; font-size: clamp(2.1rem, 1.5vw, 2rem); margin-bottom: 4px; color: var(--gold-light); }
+#page3 .section-heading .eyebrow { font-family: 'Jost', serif; font-size: clamp(0.95rem, 1.5vw, 1.75rem); color: var(--ivory-bright); }
+#page3 .section-heading h2 { font-family: 'Sevone', serif; font-size: clamp(2.1rem, 1.5vw, 2rem); margin-bottom: 4px; color: var(--gold-pale); }
 
 .timeline {
   max-width: 940px;
@@ -1065,7 +1069,7 @@ rgba(20, 13, 10, 0.90) 100%
   bottom: 8px;
   left: 50%;
   width: 1px;
-  background: linear-gradient(180deg, transparent, var(--crimson-deep) 10%, var(--crimson-deep) 90%, transparent);
+  background: linear-gradient(180deg, transparent, var(--maroon-deep) 10%, var(--maroon-deep) 90%, transparent);
   transform: translateX(-50%);
 }
 
@@ -1094,17 +1098,17 @@ rgba(20, 13, 10, 0.90) 100%
 .timeline-item.align-left .timeline-card { grid-column: 1; justify-self: end; text-align: right; }
 .timeline-item.align-right .timeline-card { grid-column: 3; justify-self: start; text-align: left; }
 
-.timeline-card .eyebrow { font-family: 'Ngetic', serif; font-size: 0.80rem; color: var(--milky-way); }
+.timeline-card .eyebrow { font-family: 'Ngetic', serif; font-size: 0.80rem; color: var(--ivory-bright); }
 .timeline-card h3 {
   font-family: 'Mending', serif;
   font-size: clamp(2.2rem, 2.5vw, 2.15rem);
-  color: var(--warm-milk);
+  color: var(--tan);
   margin: 6px 0 2px;
 }
 .timeline-card .time {
   font-family: 'Runtime';
   font-size: clamp(1.8rem, 3.2vw, 2.5rem);
-  color: var(--warm-milk);
+  color: var(--tan);
   display: block;
   margin: 4px 0 12px;
 }
@@ -1113,12 +1117,12 @@ rgba(20, 13, 10, 0.90) 100%
   font-weight: 500;
   font-size: clamp(1.15rem, 1.9vw, 1.32rem);
   margin-bottom: 4px;
-  color: var(--venue-name);
+  color: var(--venue-gold);
 }
 .timeline-card .venue-addr {
   font-family: 'Jost', serif;
   font-size: clamp(0.9rem, 1.4vw, 1rem);
-  color: var(--milky-way);
+  color: var(--ivory-bright);
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -1129,8 +1133,8 @@ rgba(20, 13, 10, 0.90) 100%
   gap: 9px;
   padding: 13px 30px;
   background: transparent;
-  border: 1px solid var(--warm-milk);
-  color: var(--gold);
+  border: 1px solid var(--tan);
+  color: var(--gold-deep);
   text-decoration: none;
   border-radius: 999px;
   font-size: 0.76rem;
@@ -1138,7 +1142,7 @@ rgba(20, 13, 10, 0.90) 100%
   text-transform: uppercase;
   transition: background 0.35s var(--ease-silk), color 0.35s var(--ease-silk), transform 0.35s var(--ease-silk);
 }
-.map-btn:hover { background: var(--crimson-deep); color: var(--ink); transform: translateY(-2px); }
+.map-btn:hover { background: var(--maroon-deep); color: var(--brown-deep); transform: translateY(-2px); }
 .map-btn svg { width: 15px; height: 15px; }
 
 @media (max-width: 700px) {
@@ -1190,7 +1194,7 @@ rgba(20, 13, 10, 0.90) 100%
   inset: 0;
   background: linear-gradient(180deg, rgba(247,238,223,0.94) 0%, rgba(247,238,223,0.8) 14%, rgba(247,238,223,0.82) 86%, rgba(247,238,223,0.96) 100%);
 }
-#page4 .section-heading h2 {font-family: 'Baik', serif; font-size: clamp(1.5rem, 1.4vw, 1.02rem); color: var(--crimson-deep);}
+#page4 .section-heading h2 {font-family: 'Baik', serif; font-size: clamp(1.5rem, 1.4vw, 1.02rem); color: var(--maroon-deep);}
 #page4 .section-heading,
 #page4 .gallery-static,
 #page4 .carousel-label,
@@ -1209,7 +1213,7 @@ rgba(20, 13, 10, 0.90) 100%
 .gallery-static figure {
   margin: 0;
   position: relative;
-  background: var(--cream);
+  background: var(--ivory);
   padding: 7px;
   box-shadow: 0 10px 26px rgba(43,23,16,0.16);
   cursor: zoom-in;
@@ -1243,7 +1247,7 @@ rgba(20, 13, 10, 0.90) 100%
   font-family: var(--font-serif, Georgia, serif);
   font-size: 0.65rem;
   letter-spacing: 0.14em;
-  color: var(--cream);
+  color: var(--ivory);
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 2;
@@ -1264,7 +1268,7 @@ rgba(20, 13, 10, 0.90) 100%
 .gallery-static figure:hover .expand-hint { opacity: 1; }
 .gallery-static .expand-hint svg {
   width: 26px; height: 26px;
-  stroke: var(--cream);
+  stroke: var(--ivory);
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
 }
 .gallery-static .expand-hint::after {
@@ -1332,13 +1336,13 @@ rgba(20, 13, 10, 0.90) 100%
   max-height: 82vh;
   width: auto; height: auto;
   object-fit: contain;
-  background: var(--cream);
+  background: var(--ivory);
   padding: 12px;
   box-shadow: 0 30px 80px rgba(0,0,0,0.5);
 }
 .lightbox-caption {
   text-align: center;
-  color: var(--cream);
+  color: var(--ivory);
   font-family: var(--font-serif, Georgia, serif);
   font-size: 0.75rem;
   letter-spacing: 0.12em;
@@ -1352,7 +1356,7 @@ rgba(20, 13, 10, 0.90) 100%
   border-radius: 50%;
   border: 1px solid rgba(247,238,223,0.5);
   background: rgba(0,0,0,0.25);
-  color: var(--cream);
+  color: var(--ivory);
   font-size: 1.4rem;
   line-height: 1;
   display: flex; align-items: center; justify-content: center;
@@ -1368,7 +1372,7 @@ rgba(20, 13, 10, 0.90) 100%
   border-radius: 50%;
   border: 1px solid rgba(247,238,223,0.5);
   background: rgba(0,0,0,0.25);
-  color: var(--cream);
+  color: var(--ivory);
   font-size: 1.6rem;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
@@ -1398,11 +1402,11 @@ rgba(20, 13, 10, 0.90) 100%
   scroll-snap-type: x mandatory;
   padding: 6px 6px 26px;
   scrollbar-width: thin;
-  scrollbar-color: var(--crimson) var(--beige);
+  scrollbar-color: var(--maroon) var(--sand);
 }
 .carousel::-webkit-scrollbar { height: 6px; }
-.carousel::-webkit-scrollbar-thumb { background: var(--crimson); border-radius: 4px; }
-.carousel::-webkit-scrollbar-track { background: var(--beige); }
+.carousel::-webkit-scrollbar-thumb { background: var(--maroon); border-radius: 4px; }
+.carousel::-webkit-scrollbar-track { background: var(--sand); }
 
 .carousel .slide {
   flex: 0 0 auto;
@@ -1424,9 +1428,9 @@ rgba(20, 13, 10, 0.90) 100%
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 1px solid var(--crimson);
-  background: var(--cream);
-  color: var(--crimson);
+  border: 1px solid var(--maroon);
+  background: var(--ivory);
+  color: var(--maroon);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1459,8 +1463,8 @@ rgba(20, 13, 10, 0.90) 100%
   opacity: 0.8;
 }
 
-#page5 .section-heading .eyebrow { color: var(--crimson-deep); }
-#page5 .section-heading h2 { color: var(--crimson-bright); }
+#page5 .section-heading .eyebrow { color: var(--maroon-deep); }
+#page5 .section-heading h2 { color: var(--maroon-bright); }
 
 .gift-message {
   font-family: 'Runtime', serif;
@@ -1483,12 +1487,12 @@ rgba(20, 13, 10, 0.90) 100%
   display: flex;
   align-items: center;
   gap: 18px;
-  background: linear-gradient(135deg, var(--cream), var(--beige));
-  border-left: 4px solid var(--gold);
-  color: #191008;
+  background: linear-gradient(135deg, var(--ivory), var(--sand));
+  border-left: 4px solid var(--gold-deep);
+  color: #2B1710;
   padding: 22px 24px;
   text-align: left;
-  box-shadow: 0 14px 30px rgba(24, 8, 4, 0.35);
+  box-shadow: 0 14px 30px rgba(43, 23, 16, 0.35);
   position: relative;
 }
 /* stacked-card look: each card overlaps slightly and tilts, straightening on hover */
@@ -1506,8 +1510,8 @@ rgba(20, 13, 10, 0.90) 100%
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--crimson-deep);
-  color: var(--gold-light);
+  background: var(--maroon-deep);
+  color: var(--gold-pale);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1531,7 +1535,7 @@ rgba(20, 13, 10, 0.90) 100%
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.4rem;
   font-weight: 600;
-  color: #191008;
+  color: #2B1710;
   letter-spacing: 0.03em;
   margin: 2px 0;
 }
@@ -1548,7 +1552,7 @@ rgba(20, 13, 10, 0.90) 100%
   gap: 4px;
   background: none;
   border: none;
-  color: #191008;
+  color: #2B1710;
   opacity: 0.75;
   padding: 6px;
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -1556,11 +1560,11 @@ rgba(20, 13, 10, 0.90) 100%
 .copy-btn svg { width: 18px; height: 18px; }
 .copy-btn .copy-label { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; }
 .copy-btn:hover { opacity: 1; transform: scale(1.08); }
-.copy-btn.copied { opacity: 1; color: var(--crimson-deep); }
+.copy-btn.copied { opacity: 1; color: var(--maroon-deep); }
 
 .gift-thanks {
   margin-top: 44px;
-  color: var(--crimson-deep);
+  color: var(--maroon-deep);
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 1.15rem;
@@ -1570,19 +1574,19 @@ rgba(20, 13, 10, 0.90) 100%
    6. PAGE 6 — WISHES & RSVP
    ========================================================= */
 #page6 {
-  background: linear-gradient(200deg, var(--crimson-deep) 0%, #430c16 60%, var(--crimson-deep) 100%);
+  background: linear-gradient(200deg, var(--maroon-deep) 0%, #430c16 60%, var(--maroon-deep) 100%);
   padding: clamp(72px, 13vw, 120px) 24px clamp(72px, 13vw, 120px);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#page6 .section-heading .eyebrow { color: var(--gold-light); }
-#page6 .section-heading h2 { color: var(--cream); }
+#page6 .section-heading .eyebrow { color: var(--gold-pale); }
+#page6 .section-heading h2 { color: var(--ivory); }
 
 .rsvp-lead {
   max-width: 540px;
   text-align: center;
-  color: var(--beige);
+  color: var(--sand);
   font-size: clamp(0.95rem, 2vw, 1.05rem);
   line-height: 1.9;
   margin: 8px 0 50px;
@@ -1615,7 +1619,7 @@ rgba(20, 13, 10, 0.90) 100%
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: var(--gold-pale);
 }
 .field-row input,
 .field-row select,
@@ -1624,16 +1628,16 @@ rgba(20, 13, 10, 0.90) 100%
   font-size: 0.95rem;
   background: rgba(247,238,223,0.9);
   border: none;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold-deep);
   padding: 11px 12px;
-  color: var(--ink);
+  color: var(--brown-deep);
   resize: vertical;
 }
 .field-row input:focus,
 .field-row select:focus,
 .field-row textarea:focus {
   outline: none;
-  border-bottom-color: var(--crimson-bright);
+  border-bottom-color: var(--maroon-bright);
   background: #fffaf0;
 }
 #guestCountRow { display: none; }
@@ -1646,8 +1650,8 @@ rgba(20, 13, 10, 0.90) 100%
   align-items: center;
   gap: 10px;
   padding: 13px 36px;
-  background: var(--gold);
-  color: var(--ink);
+  background: var(--gold-deep);
+  color: var(--brown-deep);
   border: none;
   border-radius: 999px;
   font-size: 0.78rem;
@@ -1655,7 +1659,7 @@ rgba(20, 13, 10, 0.90) 100%
   text-transform: uppercase;
   transition: background 0.35s var(--ease-silk), transform 0.35s var(--ease-silk);
 }
-.rsvp-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+.rsvp-submit:hover { background: var(--gold-pale); transform: translateY(-2px); }
 .rsvp-submit:disabled { opacity: 0.6; cursor: wait; transform: none; }
 .rsvp-submit svg { width: 15px; height: 15px; }
 
@@ -1663,7 +1667,7 @@ rgba(20, 13, 10, 0.90) 100%
   min-height: 1.2em;
   text-align: center;
   font-size: 0.82rem;
-  color: var(--gold-light);
+  color: var(--gold-pale);
   margin: 0;
 }
 .rsvp-status.error { color: #ff9d9d; }
@@ -1681,7 +1685,7 @@ rgba(20, 13, 10, 0.90) 100%
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 1.2rem;
-  color: var(--gold-light);
+  color: var(--gold-pale);
   margin-bottom: 18px;
   text-align: center;
 }
@@ -1693,7 +1697,7 @@ rgba(20, 13, 10, 0.90) 100%
   padding-right: 4px;
 }
 .wishes-list::-webkit-scrollbar { width: 5px; }
-.wishes-list::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+.wishes-list::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 4px; }
 
 .wishes-empty {
   text-align: center;
@@ -1705,7 +1709,7 @@ rgba(20, 13, 10, 0.90) 100%
 
 .wish-item {
   background: rgba(247,238,223,0.08);
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--gold-deep);
   padding: 14px 16px;
   animation: wishIn 0.6s var(--ease-silk);
 }
@@ -1716,14 +1720,14 @@ rgba(20, 13, 10, 0.90) 100%
 .wish-item .wish-name {
   font-weight: 500;
   font-size: 0.9rem;
-  color: var(--cream);
+  color: var(--ivory);
   display: block;
   margin-bottom: 4px;
 }
 .wish-item .wish-status {
   font-size: 0.68rem;
   letter-spacing: 0.06em;
-  color: var(--gold-light);
+  color: var(--gold-pale);
   opacity: 0.85;
 }
 .wish-item .wish-text {
@@ -1747,7 +1751,7 @@ rgba(20, 13, 10, 0.90) 100%
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: var(--beige);
+  color: var(--sand);
   text-align: center;
   padding: clamp(56px, 10vw, 90px) 24px clamp(48px, 8vw, 72px);
   overflow: hidden;
@@ -1780,7 +1784,7 @@ rgba(20, 13, 10, 0.90) 100%
 #closing .flourish .diamond {
   width: 8px;
   height: 8px;
-  background: var(--gold);
+  background: var(--gold-deep);
   transform: rotate(45deg);
 }
 
@@ -1788,7 +1792,7 @@ rgba(20, 13, 10, 0.90) 100%
   font-family: 'Mending', serif;
   font-style: italic;
   font-size: clamp(2.4rem, 5vw, 3.2rem);
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-bottom: 45px;
   line-height: 1.2;
 }
@@ -1800,13 +1804,13 @@ rgba(20, 13, 10, 0.90) 100%
   max-width: 420px;
   margin: 0 auto;
   line-height: 1.9;
-  color: var(--gold-light);
+  color: var(--gold-pale);
 }
 
 #closing .footer-divider {
   width: 60px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background: linear-gradient(90deg, transparent, var(--gold-deep), transparent);
   margin: 32px auto 26px;
   opacity: 0.7;
 }
@@ -1815,7 +1819,7 @@ rgba(20, 13, 10, 0.90) 100%
   font-family: 'Mending', serif;
   font-style: italic;
   font-size: clamp(1.5rem, 2.4vw, 1.7rem);
-  color: var(--gold);
+  color: var(--gold-deep);
   letter-spacing: 0.03em;
 }
 
@@ -1826,7 +1830,7 @@ rgba(20, 13, 10, 0.90) 100%
   font-size: 0.85rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: var(--gold-pale);
   opacity: 0.75;
 }
 
@@ -1841,9 +1845,9 @@ rgba(20, 13, 10, 0.90) 100%
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  border: 1px solid var(--gold);
-  background: var(--crimson-deep);
-  color: var(--gold-light);
+  border: 1px solid var(--gold-deep);
+  background: var(--maroon-deep);
+  color: var(--gold-pale);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1869,7 +1873,7 @@ rgba(20, 13, 10, 0.90) 100%
 #progress-rail .bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, var(--crimson), var(--gold));
+  background: linear-gradient(90deg, var(--maroon), var(--gold-deep));
   transition: width 0.1s linear;
   box-shadow: 0 0 6px rgba(201,161,92,0.5); /* small glow so it reads clearly on dark sections too */
 }
