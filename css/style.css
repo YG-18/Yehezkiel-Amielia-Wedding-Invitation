@@ -51,8 +51,24 @@
 }
 
 @font-face {
-  font-family: 'Moglande';
-  src: url('../fonts/moglandemo.regular.ttf') format('truetype');
+  font-family: 'Cintarini';
+  src: url('../fonts/cintarini-regular.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rose';
+  src: url('../fonts/rosehot-regular.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mellos';
+  src: url('../fonts/mellos-regular.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -329,7 +345,7 @@ section.page {
 }
 
 .cover-eyebrow {
-  font-family: 'Moglande', serif;
+  font-family: 'Baik', serif;
   letter-spacing: 0.3em;
   font-size: 1rem;
   color: var(--black);
@@ -370,10 +386,10 @@ section.page {
   padding: 15px 40px;
   background: transparent;
   border: 0px solid var(--soga-terracotta);
-  /* color: var(--maroon-deep); */
+  color: var(--bone-white);
   border-radius: 999px;
-  font-family: 'Jost', serif;
-  font-size: 0.85rem;
+  font-family: 'Rose', serif;
+  font-size: 1.35rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   display: flex;
@@ -383,15 +399,15 @@ section.page {
   animation: pulseGlow 3s ease-in-out infinite;
 }
 .open-btn:hover {
-  background: var(--bronze);
-  color: var(--brown-deep);
+  background: var(--ivory-bright);
+  color: var(--ivory-bright);
   letter-spacing: 0.4em;
 }
 .open-btn svg { width: 16px; height: 16px; }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(75, 18, 18, 0.35); }
-  50% { box-shadow: 0 0 0 10px rgba(74, 71, 66, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(144, 117, 117, 0.639); }
+  50% { box-shadow: 0 0 0 3px rgba(208, 193, 166, 0.582); }
 }
 
 .cover-invite-for {
@@ -1924,12 +1940,24 @@ rgba(20, 13, 10, 0.90) 100%
   #music-toggle { width: 46px; height: 46px; bottom: 16px; right: 16px; }
 }
 
+.invite-label {
+  font-family: 'Cintarini', cursive;
+  font-size: 1.35rem;
+  color: var(--bone-white);
+}
+
+.invite-name {
+  font-family: 'Rose', cursive;
+  font-size: 1.7rem;
+  color: var(--bone-white);
+}
+
 /* ---- Very small phones (≤ 360px): last-resort compression so
         nothing overflows on the narrowest common devices ---- */
 @media (max-width: 360px) {
   .countdown .unit { width: 58px; }
   .cover-names .name-line { font-size: 2.1rem; }
-  .invite-names .name { font-size: 1.7rem; }
+  .invite-name { font-size: 1.7rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
