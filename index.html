@@ -14,6 +14,9 @@
 <!-- ================= COVER ================= -->
 <section id="cover">
   <img src="images/cover-bg.png" alt="Yehezkiel and Amielia" class="cover-bg">
+  <!-- Split-door copies of the cover are used for the desktop/tablet opening animation. -->
+  <div class="cover-door cover-door-left" aria-hidden="true"></div>
+  <div class="cover-door cover-door-right" aria-hidden="true"></div>
   <!-- <div class="cover-scrim"></div> -->
 
   <div class="cover-frame">
@@ -35,7 +38,17 @@
 </div>
 
 <!-- ================= MAIN CONTENT ================= -->
-<main id="mainContent" style="display:none;">
+<!--
+  The invitation is intentionally kept inside a portrait-oriented stage.
+  On wide screens the stage remains the designed 9:16 composition while the
+  surrounding area becomes an atmospheric frame using the cover artwork.
+-->
+<div id="invitation-shell" aria-hidden="true">
+  <div class="desktop-side desktop-side-left" aria-hidden="true">
+    <img src="images/desktop-side-left.jpeg" alt="" class="desktop-side-image" loading="eager" onerror="this.style.display='none'">
+  </div>
+  <div class="invitation-stage">
+    <main id="mainContent" style="display:none;">
 
   <!-- ============ PAGE 1 — OUR BEGINNING ============ -->
   <section class="page" id="page1">
@@ -461,7 +474,12 @@
     </div>
   </section>
 
-</main>
+    </main>
+  </div>
+  <div class="desktop-side desktop-side-right" aria-hidden="true">
+    <img src="images/desktop-side-right.jpeg" alt="" class="desktop-side-image" loading="eager" onerror="this.style.display='none'">
+  </div>
+</div>
 
 <!-- ================= MUSIC CONTROL ================= -->
 <!-- Put your song at song/song.wav -->
