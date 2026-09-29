@@ -6,8 +6,8 @@ const CONFIG = {
 
   // Paste your real Google Maps "share" links here (Share > Copy link on Google Maps)
   mapsLinks: {
-    ceremony:  "https://maps.google.com/?q=Gereja+Bethany+Community+Batam+Baloi+Polisi",
-    reception: "https://maps.google.com/?q=Kayu+Merah+Panbil+Batam"
+    ceremony:  "https://maps.app.goo.gl/5nzN1SEyEk5KGJtQ7",
+    reception: "https://maps.app.goo.gl/7vj7YDR4nLcBFexZA"
   },
 
   // Static "hero" photos in the gallery grid — put files at images/moment-1.jpeg ... moment-5.jpeg
@@ -29,6 +29,7 @@ const CONFIG = {
 /* ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("invitation-locked");
   injectMapsLinks();
   buildStaticGallery();
   buildCarousel();
@@ -49,6 +50,7 @@ function injectMapsLinks() {
     if (CONFIG.mapsLinks[key]) a.href = CONFIG.mapsLinks[key];
   });
 }
+
 function setInviteeName() {
   console.log("setInviteeName() CALLED");
 
@@ -70,6 +72,7 @@ function setInviteeName() {
 }
 
 document.addEventListener('DOMContentLoaded', setInviteeName);
+
 /* ---------- Lightbox controller ---------- */
 const lightbox = {
   list: [],
@@ -196,78 +199,121 @@ function setupVideoTransition() {
   const video = document.getElementById("introVideo");
   const cover = document.getElementById("cover");
   const main = document.getElementById("mainContent");
+  const shell = document.getElementById("invitation-shell");
 
-  // Defensive check: if any required element is missing from the page,
-  // warn clearly in the console instead of silently crashing later deep
-  // inside the click handler (which is what "fades but no video plays"
-  // usually means — check the console for exactly which one is missing).
-  if (!openBtn || !overlay || !video || !cover || !main) {
+  if (!openBtn || !overlay || !video || !cover || !main || !shell) {
     console.warn(
       "setupVideoTransition: missing element(s) —",
-      { openBtn, overlay, video, cover, main },
-      "Check that index.html still has #openBtn, #video-overlay, #introVideo, #cover, and #mainContent."
+      { openBtn, overlay, video, cover, main, shell },
+      "Check that #openBtn, #video-overlay, #introVideo, #cover, #mainContent and #invitation-shell exist."
     );
     return;
   }
 
-  // Safety net in case the video's actual length differs from 10s or
-  // the 'ended' event doesn't fire for some reason (e.g. file missing).
-  const VIDEO_DURATION_MS = 10000;
+  // Fallback only. The normal path uses the video's own ended event so the
+  // invitation never cuts the intro short when the video length changes.
+  const VIDEO_FALLBACK_MS = 15000;
   let finished = false;
+  let fallbackTimer = null;
+
+  function revealMainInvitation() {
+    if (finished) return;
+    finished = true;
+    clearTimeout(fallbackTimer);
+
+    startMusicOnOpen();
+
+    main.style.display = "block";
+    main.style.opacity = "0";
+    main.style.transition = "opacity 1.15s ease";
+
+    shell.classList.add("is-ready");
+    shell.setAttribute("aria-hidden", "false");
+    document.body.classList.remove("invitation-locked");
+    document.body.classList.add("invitation-open");
+
+    // Give the main stage one frame to become measurable before fading it in.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        main.style.opacity = "1";
+      });
+    });
+
+    overlay.classList.add("fade-out");
+
+    setTimeout(() => {
+      overlay.classList.remove("active", "fade-out");
+      video.pause();
+      video.removeEventListener("ended", revealMainInvitation);
+
+      const firstPage = document.getElementById("page1");
+      if (firstPage) {
+        firstPage.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      startCountdown();
+      const musicToggle = document.getElementById("music-toggle");
+      if (musicToggle) musicToggle.classList.add("visible");
+    }, 900);
+  }
+
+  function startPlayback() {
+    if (finished) return;
+
+    try {
+      video.currentTime = 0;
+    } catch (e) {
+      // Some browsers may not allow seeking until metadata is ready.
+    }
+
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(err => {
+        console.warn("Video play() failed:", err);
+        revealMainInvitation();
+      });
+    }
+  }
 
   openBtn.addEventListener("click", () => {
+    if (openBtn.disabled || finished) return;
     openBtn.disabled = true;
 
-    cover.style.transition = "opacity 0.6s ease";
-    cover.style.opacity = "0";
-    setTimeout(() => { cover.style.display = "none"; }, 650);
+    // 1. Start the cover-door animation first. This is the visual hand-off
+    //    from the full-screen cover to the portrait invitation stage.
+    cover.classList.add("cover-opening");
 
-    overlay.classList.add("active");
+    // 2. Reveal the desktop side artwork underneath while the cover panels
+    //    are travelling outward. On phones this simply remains transparent.
+    shell.classList.add("is-ready");
+    shell.setAttribute("aria-hidden", "false");
 
-    const startPlayback = () => {
-      video.currentTime = 0;
-      video.play().catch((err) => {
-        console.warn("Video play() failed:", err);
-        finishIntro();
-      });
-    };
+    // 3. Let the doors travel for a moment before placing the intro video on
+    //    top. This prevents the old "fade to black" feeling.
+    window.setTimeout(() => {
+      overlay.classList.add("active");
 
-    if (video.readyState >= 3) {
-      // HAVE_FUTURE_DATA or better — safe to seek+play immediately
-      startPlayback();
-    } else {
-      video.addEventListener("canplay", startPlayback, { once: true });
-      video.load(); // nudge loading in case preload didn't kick in yet
-    }
+      if (video.readyState >= 3) {
+        startPlayback();
+      } else {
+        video.addEventListener("canplay", startPlayback, { once: true });
+        video.load();
+      }
+    }, 620);
 
-    function finishIntro() {
-      if (finished) return;
-      finished = true;
+    // Keep the cover in the DOM during the hand-off, then remove it from the
+    // layout so it can never interfere with scrolling or fixed controls.
+    window.setTimeout(() => {
+      cover.classList.add("cover-complete");
+    }, 1350);
 
-      startMusicOnOpen();
-      overlay.classList.add("fade-out");
-
-      main.style.display = "block";
-      main.style.opacity = "0";
-      main.style.transition = "opacity 1.2s ease";
-      requestAnimationFrame(() => { main.style.opacity = "1"; });
-
-      setTimeout(() => {
-        overlay.classList.remove("active", "fade-out");
-        video.pause();
-        document.getElementById("page1").scrollIntoView({ behavior: "smooth" });
-        startCountdown();
-        document.getElementById("music-toggle").classList.add("visible");
-      }, 900);
-    }
-
-    video.addEventListener("ended", finishIntro, { once: true });
-    setTimeout(finishIntro, VIDEO_DURATION_MS + 200);
+    fallbackTimer = window.setTimeout(revealMainInvitation, VIDEO_FALLBACK_MS);
+    video.addEventListener("ended", revealMainInvitation, { once: true });
   });
 
   video.addEventListener("error", () => {
     console.warn(
-      "Intro video failed to load — check that the file exists at exactly video/intro.mp4 (case-sensitive) and is a browser-playable .mp4 (H.264 video codec)."
+      "Intro video failed to load — check that video/intro.mp4 exists and is a browser-playable H.264 MP4. The invitation will continue automatically."
     );
   });
 }
